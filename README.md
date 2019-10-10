@@ -11,32 +11,32 @@ This is memory/persistent jail engine. Sometimes you want to put some data into 
 //or you can just memory based store it
 
 //memory based
-j := jail.New()
+guantanamo := jail.New()
 
 //persistent
-j := jail.New("jail.db")
+guantanamo := jail.New("jail.db")
 
 //so lets put some into db
 //you can use any ID, jail time duration
 //and you can write a reason as optional
-j.Put("127.0.0.1", time.Hour * 10, "reason is ban")
-j.Put("127.0.0.2", time.Second * 30)
-j.Put(42, time.Minute)
-j.Put([]byte("user1"), time.Minute, "ban")
+guantanamo.Put("127.0.0.1", time.Hour * 10, "reason is ban")
+guantanamo.Put("127.0.0.2", time.Second * 30)
+guantanamo.Put(42, time.Minute)
+guantanamo.Put([]byte("user1"), time.Minute, "ban")
 
 
 //check the id
-j.Check("127.0.0.1") //true... in jail now
+guantanamo.Check("127.0.0.1") //true... in jail now
 
 //get reason
-j.Reason("127.0.0.1") //string "reason is ban"
+guantanamo.Reason("127.0.0.1") //string "reason is ban"
 
 //delete
-j.Delete("127.0.0.1")
+guantanamo.Delete("127.0.0.1")
 
 //count
 //so how many items in jail
-j.Count() //4
+guantanamo.Count() //4
 ```
 
 ### Thanks
